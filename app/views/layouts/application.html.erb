@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PropertyFinder</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+  <%= stylesheet_link_tag "dashboard" %>
+
+</head>
+
+<body>
+  <% if ["public", "users"].include?(controller.controller_name)  %>
+  <header>
+    <%= render 'shared/header' %>
+    <%= yield %>
+  </header>
+  <% else %>
+  <%= render 'shared/dashboard' %>
+  <div class="container-fluid"> 
+    <div class="row">
+      <%= render 'shared/sidebar' %>
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <%= yield %>
+      </main>
+    </div>
+  </div>
+  <% end -%>
+  <%= render 'shared/footer' %>
+</body>
+</html>
+<style>
+  body{
+    font-family: 'Roboto', sans-serif;
+  }
+</style>
