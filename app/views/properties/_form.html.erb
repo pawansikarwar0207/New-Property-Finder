@@ -27,6 +27,11 @@
   </div>
 
   <div class="form-group">
+    <%= form.label :image, style: "display: block mt-2" %>
+    <%= form.file_field :images, multiple:true, class:"mt-2 mb-2" %>
+  </div>
+
+  <div class="form-group">
     <%= form.submit "Save Property", class: "btn btn-success mt-3" %>
   </div>
 <% end %>

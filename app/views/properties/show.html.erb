@@ -1,3 +1,9 @@
+<div class="mb-4">
+  <% if @property.images.attached? %>
+    <%= image_tag @property.images.first %>
+  <% end %>
+</div>
+
 <p>
   <strong>Name : </strong>
   <%= @property.name %>
