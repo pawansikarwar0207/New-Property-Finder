@@ -1,0 +1,30 @@
+<% @properties.each do |property| %>
+<div class="col-lg-3 mt-4 border me-3">
+	<%= link_to property_path(property) do %>
+	  <% if property.images.first %>
+	    <%= image_tag property.images.first, class: "property-image" %><br>
+	  <% end %>
+	  <h5 class="mt-2"><%= property.name %></h5>
+	<% end %>
+
+	<div>
+		<i class="fa-solid fa-house"></i>
+		<%= property.address %> 
+	</div>
+	<div>
+		<i class="fa-solid fa-bed"></i>
+		<%= property.rooms %> 
+	</div>
+	<div class="mb-3">
+		<i class="fa-solid fa-bath"></i>
+		<%= property.bathrooms %> 
+	</div>
+</div>
+<% end %>
+
+<style>
+	.property-image{
+		width: 100%;
+		margin-top: 10px;
+	}
+</style>

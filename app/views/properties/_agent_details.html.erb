@@ -1,0 +1,8 @@
+<% if user_signed_in? %>
+  <div class="text-center border pt-4 pb-4 ml-4">
+    <h5><%= current_user.full_name %></h5>
+    <p><%= current_user.company %></p>
+    <button class="btn btn-warning text-uppercase">Call <%#= current_user.full_name %></button>
+    <button class="btn btn-success text-uppercase">Email <%#= current_user.first_name %></button>
+  </div>
+<% end %>

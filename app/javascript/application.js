@@ -5,3 +5,10 @@ import * as bootstrap from "bootstrap"
 
 import Rails from '@rails/ujs'
 Rails.start()
+
+require("trix")
+require("@rails/actiontext")
+
+require("./includes/properties");
+require ("jquery");
+

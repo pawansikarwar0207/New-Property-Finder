@@ -1,0 +1,116 @@
+/* line 1, app/assets/stylesheets/dashboard.scss */
+body {
+  font-size: .875rem;
+}
+
+/* line 5, app/assets/stylesheets/dashboard.scss */
+.feather {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-bottom;
+}
+
+/*
+ * Sidebar
+ */
+/* line 15, app/assets/stylesheets/dashboard.scss */
+.sidebar {
+  position: fixed;
+  top: 0;
+  /* rtl:raw:
+  right: 0;
+  */
+  bottom: 0;
+  /* rtl:remove */
+  left: 0;
+  z-index: 100;
+  /* Behind the navbar */
+  padding: 48px 0 0;
+  /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 767.98px) {
+  /* line 30, app/assets/stylesheets/dashboard.scss */
+  .sidebar {
+    top: 5rem;
+  }
+}
+
+/* line 35, app/assets/stylesheets/dashboard.scss */
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  /* Scrollable contents if viewport is shorter than content. */
+}
+
+/* line 44, app/assets/stylesheets/dashboard.scss */
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #333;
+}
+
+/* line 49, app/assets/stylesheets/dashboard.scss */
+.sidebar .nav-link .feather {
+  margin-right: 4px;
+  color: #727272;
+}
+
+/* line 54, app/assets/stylesheets/dashboard.scss */
+.sidebar .nav-link.active {
+  color: #2470dc;
+}
+
+/* line 58, app/assets/stylesheets/dashboard.scss */
+.sidebar .nav-link:hover .feather,
+.sidebar .nav-link.active .feather {
+  color: inherit;
+}
+
+/* line 63, app/assets/stylesheets/dashboard.scss */
+.sidebar-heading {
+  font-size: .75rem;
+  text-transform: uppercase;
+}
+
+/*
+ * Navbar
+ */
+/* line 72, app/assets/stylesheets/dashboard.scss */
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, 0.25);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.25);
+}
+
+/* line 80, app/assets/stylesheets/dashboard.scss */
+.navbar .navbar-toggler {
+  top: .25rem;
+  right: 1rem;
+}
+
+/* line 85, app/assets/stylesheets/dashboard.scss */
+.navbar .form-control {
+  padding: .75rem 1rem;
+  border-width: 0;
+  border-radius: 0;
+}
+
+/* line 91, app/assets/stylesheets/dashboard.scss */
+.form-control-dark {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* line 97, app/assets/stylesheets/dashboard.scss */
+.form-control-dark:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
+}
