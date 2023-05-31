@@ -8,4 +8,6 @@ class Property < ApplicationRecord
 	scope :latest, -> { order created_at: :desc }
 
 	has_rich_text :content
+
+	
 end

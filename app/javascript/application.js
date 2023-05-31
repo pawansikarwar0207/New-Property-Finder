@@ -12,3 +12,12 @@ require("@rails/actiontext")
 require("./includes/properties");
 require ("jquery");
 
+//= require toastr_rails
+
+
+// $(function(){
+// 	$("#show-tel").on("click", function(){
+// 		var $this = $(this);
+// 		$this.find("span").text($this.data("telephone"));
+// 	});
+// })

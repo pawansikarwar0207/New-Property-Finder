@@ -11,6 +11,7 @@ class PropertiesController < ApplicationController
   # GET /properties/1 or /properties/1.json
   def show
     @agent = @property.user
+    @agent_properties = Property.where(user_id: @agent.id).where.not(id: @property.id)
   end
 
   # GET /properties/new
@@ -61,11 +62,28 @@ class PropertiesController < ApplicationController
     end
   end
 
-  def set_sidebar
-    @show_sidebar = true
-  end
+  def email_agent
+    first_name = params[:first_name]
+    last_name = params[:last_name]
+    email = params[:email]
+    message = params[:message]
 
-  private
+    logger.debug "First Name": "#{first_name}"
+    logger.debug "Last Name": "#{last_name}"
+    logger.debug "Email": "#{email}"
+    logger.debug "Message": "#{message}"
+
+    respond_to do |format|
+     format.json { head :no_content }
+   end
+ end
+
+
+ def set_sidebar
+  @show_sidebar = true
+end
+
+private
     # Use callbacks to share common setup or constraints between actions.
     def set_property
       @property = Property.find(params[:id])
@@ -73,6 +91,6 @@ class PropertiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def property_params
-      params.require(:property).permit(:name, :address, :price, :rooms, :content, :parking_spaces, :details, :bathrooms,images: [])
+      params.require(:property).permit(:name, :address, :price, :rooms, :content, :parking_spaces, :for_sale, :available_date, :details, :bathrooms,images: [])
     end
-end
+  end

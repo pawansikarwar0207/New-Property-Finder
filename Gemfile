@@ -74,3 +74,4 @@ end
 gem 'devise'
 gem "letter_opener"
 gem 'cssbundling-rails'
+gem 'toastr_rails'

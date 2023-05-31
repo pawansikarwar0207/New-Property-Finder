@@ -8,31 +8,37 @@
     <div class="col-sm-7">
       <div class="row">
         <div class="col-sm-6">
-          <p class="mb-0"><%= @property.address%></p>
-          <p class="h2"><%= @property.price > 0 ? number_to_currency(@property.price, precision: 0) : "For Sale" %></p>
+          <p class=" h4 mb-0"><%= @property.for_sale? ? "For Sale" : "For Rent" %></p>
+          <p class="mb-2"><%= @property.address%></p>
+          <% if @property.for_sale? %>
+          <p class="h2"><%= @property.price > 0 ? number_to_currency(@property.price, precision: 0) : "Offer Accepted" %></p>
+          <% else %>
+          <p class="h2"><%= @property.price > 0 ? number_to_currency(@property.price, precision: 0) : "Open for enquiries" %> / month</p>
+          <% end %>
         </div>
-        <div class="col-sm-6 text-center border">
-          <div class="row mr-sm-3 bg-light p-3">
-            <div class="col-sm-3 mt-2 mx-2">
-              <p class="mb-0"><strong>Rooms</strong></p>
-              <i class="fa-solid fa-bed me-2"></i>
-              <span><%= @property.rooms %></span>
+        <div class="col-sm-6 text-center ">
+          <div class="row px-1 p-3 bg-light border">
+            <div class="col-sm-3 mt-2 me-4">
+              <i class="fa-solid fa-bed"></i><br>
+              <small><%= @property.rooms %> Rooms </small>
             </div>
-            <div class="col-sm-3 mt-2 mx-2">
-              <p class="mb-0"><strong>Bathrooms</strong></p>
-              <i class="fa-solid fa-bath me-2"></i>
-              <span><%= @property.bathrooms %></span>              
+            <div class="col-sm-3 mt-2 me-4">
+              <i class="fa-solid fa-bath"></i><br>
+              <small><%= @property.bathrooms %> Bathrooms </small>
             </div>
-            <div class="col-sm-3 mt-2 mx-2">
-              <p class="mb-0"><strong>Parking</strong></p>
-              <i class="fa-solid fa-car me-2"></i>
-              <span><%= @property.parking_spaces %></span>              
+            <div class="col-sm-3 mt-2 me-4">
+              <i class="fa-solid fa-car"></i><br>
+              <small><%= @property.parking_spaces %> Parking </small>
             </div>
           </div>
         </div>
         <div class="row border-top border-bottom pt-4 pb-4 mt-4">
           <div class="col-sm-6 mt-3 mb-3 text-center ">
+            <% if @property.for_sale? %>
             <strong><%= link_to "Est.Monthly Repayment of #{number_to_currency((@property.price - (@property.price * 0.1)) / 360, precision: 0)} *", "#", class: 'text-success'  %></strong>
+            <% else %>
+            <strong>Available from <%= @property.available_date.strftime("%a") %>, <%= @property.available_date.day.ordinalize %> <%= @property.available_date.strftime("%B") %> <%= @property.available_date.strftime("%y") %>  </strong>
+            <% end %>
           </div>
           <div class="col-sm-6 mt-3 mb-3 text-center">
             <strong><%= link_to "Can I afford this property?", "#", class:'text-success' %> </strong>
@@ -47,24 +53,36 @@
           <%= simple_format @property.details %>
         </div>
         <!-- <button class="btn btn-outline-secondary mt-3" id="show-button">Show More</button> -->
-        <p class="mt-5">* This rate is based on a 30 year mortgage, after paying an initial 10% down payment. Shorter term mortgages would require a higher monthly repayment.</p>
+        <% if @property.for_sale? %>
+          <p class="mt-5">* This rate is based on a 30 year mortgage, after paying an initial 10% down payment. Shorter term mortgages would require a higher monthly repayment.</p>
+        <% end %>
       </div>
     </div>
-    <div class="col-sm-4 px-5 ">
+    <div class="col-sm-4 px-5">
       <!-- <p class="h4">Agent Detail</p> -->
       <%= render 'properties/agent_details' %>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22418.63996080032!2d151.18367282905496!3d-33.87331322407063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae249c20d251%3A0x6d49e024c3093a2f!2sChinatown%20-%20Sydney!5e0!3m2!1sen!2sin!4v1685449293899!5m2!1sen!2sin" width="345" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
+  <section class="mt-3 mb-3">
+    <div class="container">
+      <div class="row">
+        <p class="h4">Other properties by this agent</p>
+        <%= render 'properties/latest_properties', properties: @agent_properties %>
+      </div>
+    </div>
+  </section>
 </div>
+
 <style>
- /* #property-detail{
-    height: 150px;
-    overflow: hidden;
-  }*/
   .prop-image{
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
     max-height: 500px;
+  }
+  .map{
+    max-width: 20%;
+    max-height: 100%;
   }
 </style>

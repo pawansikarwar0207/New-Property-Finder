@@ -12,7 +12,7 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :price, style: "display: block" %>
+    <%= form.label :total_price,"Total Price (for sale) / Monthly Price (rental)", style: "display: block" %>
     <%= form.number_field :price, class: "form-control mt-2 mb-2" %>
   </div>
 
@@ -29,6 +29,16 @@
   <div class="form-group">
     <%= form.label :parking_spaces, style: "display: block" %>
     <%= form.number_field :parking_spaces, class: "form-control mt-2 mb-2", min: 0 %>
+  </div>
+
+  <div class="form-group mt-2 mb-2">
+    <%= form.label :for_sale, style: "display: block" %>
+    <%= form.select :for_sale, options_for_select({"Yes" => true, "No" => false }, @property.for_sale), class: "form-control mt-2 mb-2", min: 0 %>
+  </div>
+
+  <div class="form-group mt-2 mb-2">
+    <%= form.label :available_date, style: "display: block" %>
+    <%= form.date_field :available_date, class: "form-control mt-2 mb-2" %>
   </div>
 
   <div class="form-group">

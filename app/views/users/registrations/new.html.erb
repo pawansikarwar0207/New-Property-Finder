@@ -35,6 +35,11 @@
     </div>
 
     <div class="form-floating">
+      <%= f.text_field :telephone, autofocus: true, autocomplete: "telephone",class:"form-control rounded-0", id:"floatingInput",placeholder:"telephone"  %>
+      <%= f.label :telephone, for: "floatingInput" %>
+    </div>
+
+    <div class="form-floating">
       <%= f.text_field :company, autofocus: true, autocomplete: "company",class:"form-control rounded-0", id:"floatingInput",placeholder:"company"  %>
       <%= f.label :company, for: "floatingInput" %>
     </div>

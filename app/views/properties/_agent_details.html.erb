@@ -1,8 +1,25 @@
 <% if user_signed_in? %>
-  <div class="text-center border pt-4 pb-4 ml-4">
-    <h5><%= current_user.full_name %></h5>
-    <p><%= current_user.company %></p>
-    <button class="btn btn-warning text-uppercase">Call <%#= current_user.full_name %></button>
-    <button class="btn btn-success text-uppercase">Email <%#= current_user.first_name %></button>
+<div class="text-center border pt-4 pb-4 ml-lg-4 mb-3">
+  <div class="agent">
+    <i class="fa-solid fa-user fa-2xl" style="color: #0a0a0a;"></i>
   </div>
+  <h5 class="mt-3"><%= current_user.full_name %></h5>
+  <p><%= current_user.company %></p>
+
+  <button class="btn btn-warning text-uppercase me-2" id="show-tel" data-tel="<%= @agent.telephone %>" ><i class="fa-solid fa-phone"></i> <span>Call</span> </button>
+
+  <!-- Start button trigger modal for email -->
+  <button type="button" class="btn btn-success text-uppercase me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <i class="fa-solid fa-envelope"></i> email
+  </button>
+
+  <%= render 'properties/send_email_modal' %>
+  
+  <!-- End button trigger modal for email -->
+
+
+  <%= link_to profile_path(@agent.id), class: "btn btn-secondary text-uppercase me-2" do %>
+  <i class="fa-solid fa-user"></i> Profile
+  <% end %>
+</div>
 <% end %>

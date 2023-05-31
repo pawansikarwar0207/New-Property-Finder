@@ -1,30 +1,35 @@
-<% @properties.each do |property| %>
-<div class="col-lg-3 mt-4 border me-3">
+<% properties.each do |property| %>
+<div class="col-lg-3 mt-2 border me-3 p-2">
 	<%= link_to property_path(property) do %>
-	  <% if property.images.first %>
-	    <%= image_tag property.images.first, class: "property-image" %><br>
-	  <% end %>
-	  <h5 class="mt-2"><%= property.name %></h5>
+	<% if property.images.first %>
+	<%= image_tag property.images.first, class: "property-image" %><br>
+	<% end %>
+	<h5 class="text-dark mt-3 mb-2"><%= property.name %></h5>
 	<% end %>
 
-	<div>
-		<i class="fa-solid fa-house"></i>
-		<%= property.address %> 
-	</div>
-	<div>
-		<i class="fa-solid fa-bed"></i>
+	<span class="my-2 text-muted">
+		<i class="fa-solid fa-car mx-2"></i>
+		<%= property.parking_spaces %> 
+	</span>
+	<span class="my-2 text-muted">
+		<i class="fa-solid fa-bed mx-2"></i>
 		<%= property.rooms %> 
-	</div>
-	<div class="mb-3">
-		<i class="fa-solid fa-bath"></i>
+	</span>
+	<span class="my-2 text-muted">
+		<i class="fa-solid fa-bath mx-2"></i>
 		<%= property.bathrooms %> 
+	</span>
+	<div class="mt-2 mb-3 mx-2">
+		<%= property.address %>
 	</div>
 </div>
 <% end %>
 
 <style>
 	.property-image{
-		width: 100%;
-		margin-top: 10px;
+		width:  100%;
+    height: 200px;
+    object-fit: cover;
 	}
+
 </style>

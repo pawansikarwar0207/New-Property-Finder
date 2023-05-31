@@ -12,8 +12,8 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
-  def company
-    "test company"
-  end
+  # def company
+  #   "test company"
+  # end
   
 end
