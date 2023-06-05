@@ -1,7 +1,75 @@
-<div class="container">
-	<h4>Agent Detail</h4>
-	<p><strong>Name : </strong>  <%= @user.full_name %></p>
-	<p><strong>Email : </strong>  <%= @user.email %></p>
-	<p><strong>Telephone : </strong>  <%= @user.telephone %></p>
+<div class="container mb-3">
+  <%# if @user.images.first %>
+  <%#= image_tag @user.images.first, class:"prop-image" %>
+  <%# end %>
+</div>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="row">
+        <div class="col-sm-6 mb-3">
+          <p class=" h4 mb-0"><%= @user.full_name %></p>
+          <p class="mb-2"><%= @user.company%></p>
+        </div>
+      </div>
+      <div class="border-top pt-3 mt-4">
+        <p class="h5 mt-2 mb-3">Description</p>
+        
+        <div id="property-detail">
+          <%= simple_format @user.details %>
+        </div>
+        <!-- <button class="btn btn-outline-secondary mt-3" id="show-button">Show More</button> -->
+      </div>
+    </div>
+    <div class="col-lg-4 px-5">
+      <%= render 'properties/profile_contact_details', agent: @user %>
+      <div class="container">
+        <div class="col-lg-12  ">
+        <div class="row p-3 bg-light">
+          <div class="col-lg-4 mx-3 mt-2 text-center mb-2 ">
+            <i class="fa-solid fa-bed fa-lg"></i><br>
+            <small class="fs-6"><%= @properties_sold %><br> Sold </small>
+          </div>
+          <div class="col-lg-4 mx-3 mt-2 text-center mb-2 ">
+            <i class="fa-solid fa-car fa-lg"></i><br>
+            <small class="fs-6"><%= @properties_for_sale %><br> For Sale </small>
+          </div>
+          <div class="col-lg-4 mx-3 mt-2 text-center mb-2 ">
+            <i class="fa-solid fa-bath fa-lg"></i><br>
+            <small class="fs-6"><%= @properties_leased %><br> Leased </small>
+          </div>
+          <div class="col-lg-4 mx-3 mt-2 text-center mb-2 ">
+            <i class="fa-solid fa-car fa-lg"></i><br>
+            <small class="fs-6"><%= @properties_for_rent %><br>For Rent</small>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <section class="mt-5 mb-3">
+    <div class="container">
+      <div class="row">
+        <p class="h4">Properties Listed by this agent</p>
+        <% if @properties.any? %>
+        <%= render 'properties/latest_properties', properties: @properties %>
+        <% else %>
+        <p>No properties listed by this agent.</p>
+        <% end %>
+      </div>
+    </div>
+  </section>
 </div>
 
+<style>
+  .prop-image{
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    max-height: 500px;
+  }
+  .map{
+    max-width: 20%;
+    max-height: 100%;
+  }
+</style>

@@ -1,0 +1,19 @@
+<main role="main">
+  <!-- Jumbotron -->
+  <div class="p-4 shadow-4 rounded-3" style="background-color: hsl(0, 0%, 94%);">
+    <h1 class="display-5 mb-3"><%= @post.title %></h1>
+    <p class="text-muted"><em>Post <%= time_ago_in_words @post.created_at %></em></p>
+    <p>
+    </div>
+  </main>
+  <div class="container mt-4">
+    <p class="fs-6"><%= simple_format @post.body %></p>
+    <p><%= link_to 'View latest blog posts', blog_path  %></p>
+  </div>
+
+
+<div>
+  <%#= link_to "Edit this post", edit_post_path(@post), class:'btn btn-primary btn-sm mt-3' %> 
+  <%#= link_to "Back to posts", posts_path, class:'btn btn-primary btn-sm mt-3' %>
+  <%#= button_to "Destroy this post", @post, method: :delete, class:'btn btn-danger btn-sm mt-3' %>
+</div>

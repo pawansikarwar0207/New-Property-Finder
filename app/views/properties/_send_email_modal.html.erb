@@ -3,12 +3,20 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New Message for <%= current_user.full_name %></h5>
+        <% if agent.present? %>
+          <h5 class="modal-title" id="exampleModalLabel">New Message for <%= agent.full_name %></h5>
+        <% else %>
+          <h5 class="modal-title" id="exampleModalLabel">New Message</h5>
+        <% end %>
+
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body text-start">
         <%= form_tag email_agent_path, id:"email-agent" do %>
-          <%= hidden_field_tag :agent_id, @agent.id %>
+          <% if agent.present? %>
+            <%= hidden_field_tag :agent_id, agent.id %>
+          <% end %>
+
 
           <div class="form-group mb-3 ">
             <label for="message-first-name" class="form-label">First Name</label>

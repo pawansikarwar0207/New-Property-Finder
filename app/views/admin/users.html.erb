@@ -1,26 +1,26 @@
 <div class="col-lg-10 mx-auto mt-3">
-	<div class="container">
-	<h3>User Details</h3>
-	<hr>
-		<table class="table table-striped">
-			<thead>
-				<th>Full Name</th>
-				<th>Email</th>
-				<th>Created At</th>
-				<th>Action</th>
-			</thead>
-			<tbody>
-				<% @users.each do |user| %>
-				<tr>
-					<td><%= user.full_name %></td>
-					<td><%= user.email %></td>
-					<td><%= user.created_at.strftime("%d %m %Y") %></td>
-					<td><%= link_to "View Profile", profile_path(user), class:'btn btn-primary btn-sm' %></td>
-				</tr>
-				<% end %>
-			</tbody>
-		</table>
-	</div>
+  <div class="container">
+    <h3>User Details</h3>
+    <hr>
+    <table class="table table-striped">
+      <thead>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Created At</th>
+        <th>Action</th>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+        <tr>
+          <td><%= user.full_name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.created_at.strftime("%d %m %Y") %></td>
+          <td><%= link_to "View Profile", profile_path(user), class:'btn btn-primary btn-sm' %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 

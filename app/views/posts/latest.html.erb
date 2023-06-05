@@ -1,0 +1,23 @@
+<main role="main">
+	<!-- Jumbotron -->
+	<div class="p-4 shadow-4 rounded-3" style="background-color: hsl(0, 0%, 94%);">
+		<h1 class="display-4 mb-3">Latest Blog Posts</h1>
+		<p>Stay up to date with latest property news at Property Finder!</p>
+		<p>
+		</div>
+	</main>
+	<div class="container mt-4">
+		<% if @posts.empty? %>
+		<p>No Posts to display!</p>
+		<% else %>
+		<% @posts.each do |post| %>
+		<div class="row">
+			<div class="col-lg-4">
+				<h3><%= post.title %></h3>
+				<p><%= post.summary %></p>
+				<%= link_to "Read More!", post_path(post), class: 'btn btn-primary btn-sm' %>
+			</div>
+		</div>
+		<% end %>
+		<% end %>
+	</div>

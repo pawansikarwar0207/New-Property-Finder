@@ -7,7 +7,7 @@
     <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
     <p>
 
-      <button type="button" class="btn btn-primary">
+      <button type="button" class="btn btn-success">
         Learn more
       </button>
     </div>
@@ -24,7 +24,16 @@
   <section id="latest-properties" class="mb-5">
     <div class="container">
       <div class="row">
+        <h3 class="mt-3">Latest Properties</h3>
           <%= render 'properties/latest_properties', properties: @properties %>
+      </div>
+    </div>
+  </section>
+
+  <section id="latest-posts" class="mb-5">
+    <div class="container">
+      <div class="row">
+          <%= render 'posts/list', posts: @posts %>
       </div>
     </div>
   </section>

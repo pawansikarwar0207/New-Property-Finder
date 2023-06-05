@@ -91,6 +91,6 @@ private
 
     # Only allow a list of trusted parameters through.
     def property_params
-      params.require(:property).permit(:name, :address, :price, :rooms, :content, :parking_spaces, :for_sale, :available_date, :details, :bathrooms,images: [])
+      params.require(:property).permit(:name, :address, :price, :rooms, :content, :parking_spaces, :for_sale, :status, :available_date, :details, :bathrooms,images: [])
     end
   end

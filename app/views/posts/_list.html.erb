@@ -1,0 +1,15 @@
+<% posts.each do |post| %>
+<h3>Latest News</h3>
+<div class="col-lg-3 mt-2 border me-3 p-2">
+	<%= link_to post_path(post) do %>
+	<%# if property.images.first %>
+	<%#= image_tag property.images.first, class: "property-image" %><br>
+	<%# end %>
+	<h5 class="text-dark mt-3 mb-2"><%= post.title%></h5>
+	<% end %>
+
+	<div class="mt-2 mb-3 mx-2">
+		<%= post.summary %>
+	</div>
+</div>
+<% end %>

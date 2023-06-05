@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts
   resources :properties
 
   devise_for :users, controllers: {
@@ -9,6 +10,8 @@ Rails.application.routes.draw do
   }
 
   get "/users" => 'admin#users', as: :users
+
+  get "/blog" => 'posts#latest', as: :blog
     
   root 'public#main'
 

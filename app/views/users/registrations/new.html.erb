@@ -45,6 +45,11 @@
     </div>
 
     <div class="form-floating">
+      <%= f.text_area :details, autofocus: true, autocomplete: "details",class:"form-control rounded-0", id:"floatingInput",placeholder:"details"  %>
+      <%= f.label :details, for: "floatingInput" %>
+    </div>
+
+    <div class="form-floating">
       <%= f.file_field :image, autofocus: true, autocomplete: "image",class:"form-control rounded-0", id:"floatingInput",placeholder:"image"  %>
       <%= f.label :image, for: "floatingInput" %>
     </div>

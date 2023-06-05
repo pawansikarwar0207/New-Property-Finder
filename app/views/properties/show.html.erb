@@ -60,7 +60,7 @@
     </div>
     <div class="col-sm-4 px-5">
       <!-- <p class="h4">Agent Detail</p> -->
-      <%= render 'properties/agent_details' %>
+      <%= render 'properties/agent_details', agent: @user %>
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22418.63996080032!2d151.18367282905496!3d-33.87331322407063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae249c20d251%3A0x6d49e024c3093a2f!2sChinatown%20-%20Sydney!5e0!3m2!1sen!2sin!4v1685449293899!5m2!1sen!2sin" width="345" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
@@ -72,6 +72,7 @@
       </div>
     </div>
   </section>
+  <%= render 'properties/send_email_modal', agent: @user %>
 </div>
 
 <style>
